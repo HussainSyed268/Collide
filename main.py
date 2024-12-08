@@ -1,16 +1,31 @@
 import math;import pygame;import random;import time;from pygame import mixer
 pygame.init()
 screen = pygame.display.set_mode((1550,850),pygame.RESIZABLE)
-background=pygame.image.load("4k.jpg");name=pygame.image.load("cooltext.png");start_but1 = pygame.image.load("play.png")
-start_but2 = pygame.image.load("play bright.png");quit_but1 = pygame.image.load("quit.png");quit_but2 = pygame.image.load("quit bright.png")
-single_but1 = pygame.image.load("single.png");single_but2 = pygame.image.load("single bright.png")
-multi_but1 = pygame.image.load("multi.png");multi_but2 = pygame.image.load("multi bright.png")
-inst_but1 = pygame.image.load("instructions.png");inst_but2 = pygame.image.load("instructions bright.png")
-back_but1 = pygame.image.load("back.png");back_but2 = pygame.image.load("back bright.png")
-player1name=pygame.image.load("player 1 Name.png");player2name=pygame.image.load("player 2 Name.png")
-bs1=pygame.mixer.Sound("brick1.mpeg");bs2=pygame.mixer.Sound("brick2.mpeg")
-buzz=pygame.mixer.Sound("buzzer.mp3");click=pygame.mixer.Sound("click.mp3");background2=pygame.image.load("4k2.jpg")
-pygame.mixer.music.load("backgroundmus.mp3")
+# Load assets (images)
+background = pygame.image.load("assets/4k.jpg")
+background2 = pygame.image.load("assets/4k2.jpg")
+name = pygame.image.load("assets/cooltext.png")
+start_but1 = pygame.image.load("assets/play.png")
+start_but2 = pygame.image.load("assets/play bright.png")
+quit_but1 = pygame.image.load("assets/quit.png")
+quit_but2 = pygame.image.load("assets/quit bright.png")
+single_but1 = pygame.image.load("assets/single.png")
+single_but2 = pygame.image.load("assets/single bright.png")
+multi_but1 = pygame.image.load("assets/multi.png")
+multi_but2 = pygame.image.load("assets/multi bright.png")
+inst_but1 = pygame.image.load("assets/instructions.png")
+inst_but2 = pygame.image.load("assets/instructions bright.png")
+back_but1 = pygame.image.load("assets/back.png")
+back_but2 = pygame.image.load("assets/back bright.png")
+player1name = pygame.image.load("assets/player 1 Name.png")
+player2name = pygame.image.load("assets/player 2 Name.png")
+
+# Load sounds
+bs1 = pygame.mixer.Sound("sounds/brick1.mpeg")
+bs2 = pygame.mixer.Sound("sounds/brick2.mpeg")
+buzz = pygame.mixer.Sound("sounds/buzzer.mp3")
+click = pygame.mixer.Sound("sounds/click.mp3")
+pygame.mixer.music.load("sounds/backgroundmus.mp3")
 pygame.mixer.music.play(-1)
 bslist=[bs1,bs2]
 def blit_but(inst_but1,quit_but1,single_but1,multi_but1):#Passive
@@ -30,7 +45,7 @@ def blit_but2(inst_but2,quit_but2,single_but2,multi_but2):#Active
 
 pygame.display.set_caption("COLLIDE")
 
-icon = pygame.image.load("medicine-ball.png")
+icon = pygame.image.load("assets/medicine-ball.png")
 pygame.display.set_icon(icon)
 bricks1 = bricks2 = bricks3 = bricks4 = bricks5 = bricks6 = bricks7 = bricks8 = []
 def initialize():
@@ -63,12 +78,12 @@ while len(col) <= 7:
         col.append(colors[a])
 C0,C1,C2,C3,C4,C5,C6,C7=0,1,2,3,4,5,6,7
 c=3
-ball_ = pygame.transform.scale(pygame.image.load("medicine-ball.png"),(15,15))
-pad_1 = pygame.transform.scale(pygame.image.load("minus1.png"),(90,190))
+ball_ = pygame.transform.scale(pygame.image.load("assets/medicine-ball.png"),(15,15))
+pad_1 = pygame.transform.scale(pygame.image.load("assets/minus1.png"),(90,190))
 pad1X = 40
 pad1Y = 300
 pad1Y_change = 0
-pad_2 = pygame.transform.scale(pygame.image.load("minus1.png"),(90,190))
+pad_2 = pygame.transform.scale(pygame.image.load("assets/minus1.png"),(90,190))
 pad2X = 1400
 pad2Y = 300
 pad2Y_change = 0
@@ -205,7 +220,7 @@ pause=False
 while running :
     pygame.time.Clock().tick(600)
     if menu:
-        background=pygame.image.load("4k.jpg")
+        background=pygame.image.load("assets/4k.jpg")
         screen.blit(background,(20,0))
         screen.blit(name,(500,150))
         mx,my = pygame.mouse.get_pos()
